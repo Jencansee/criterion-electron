@@ -1,8 +1,9 @@
-export type matrixData = number[][];
+export type matrixRow = number[];
+export type matrixData = matrixRow[];
 
 export interface Matrix {
 	entryMatrix: matrixData;
-	results: number[];
+	results: matrixRow;
 	updateMatrix: React.Dispatch<React.SetStateAction<number[][]>>;
 }
 

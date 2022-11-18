@@ -2,22 +2,22 @@ import { useState } from 'react';
 import 'tailwindcss/tailwind.css';
 
 import Matrix from 'components/Matrix';
-import Dropdown from 'components/Dropdown';
+import Dropdown from 'components/Dropdown/Dropdown';
 import Button from 'components/Button';
 import ALGORITHMS from '../utils/algo';
 import toast, { Toaster } from 'react-hot-toast';
-import { matrixData } from 'types';
+import { matrixData, matrixRow } from 'types';
 
 export default function App() {
 	const [algorithm, setAlgorithm] = useState('1');
-  const [result, setResult] = useState([]);
-	const [matrix, setMatrix] = useState([
+  const [result, setResult] = useState<matrixRow>([]);
+	const [matrix, setMatrix] = useState<matrixData>([
     [16, 12, 10, 14],
     [19, 17, 9, 18],
     [13, 18, 15, 9],
     [17, 14, 11, 15],
   ]);
-  
+
 
 	const handleEmptyCols = (matrix: matrixData) => {
 		for (let i = 0; i < matrix.length; i++) {
@@ -43,7 +43,6 @@ export default function App() {
 		}
   };
 
-
   return (
     <>
       <main className="mx-auto flex h-screen max-w-6xl flex-col justify-center p-20">
@@ -52,17 +51,13 @@ export default function App() {
         <div className="flex justify-center mt-4">
           <Button handleClick={handleCalculator} />
           <Dropdown
-            handleAlgorithmPick={({ target }) => {
-              const trgt = target as HTMLInputElement;
-              setAlgorithm(trgt.value);
-            }}
+            handleAlgorithmPick={({ value }) => setAlgorithm(value)}
           />
         </div>
 
         <b className="m-8 text-xl">Оптимизм = 0,83</b>
-
 				<p className="opacity-40 text-center select-none">© Калашников Павел</p>
-				
+
 				<Toaster
 					position="top-right"
 					toastOptions={{

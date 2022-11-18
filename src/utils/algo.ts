@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable no-plusplus */
 
-import { matrixData } from "types";
+import { matrixData, matrixRow } from "types";
 
 
 const laplace = (data: matrixData) => {
@@ -85,14 +85,14 @@ const hurwitz = (data: matrixData) => {
       if (min > data[i][j]) min = data[i][j];
     }
 
-    result.push((opt * max + (min - opt * min)).toFixed(2));
+    result.push(Number((opt * max + (min - opt * min)).toFixed(2)));
   }
 
   return result;
 };
 
 interface algoRefObject {
-  [key: number | string]: (data: matrixData) => number[] | string[];
+  [key: number | string]: (data: matrixData) => matrixRow;
 }
 const ALGORITHMS: algoRefObject = {
   1: laplace,
