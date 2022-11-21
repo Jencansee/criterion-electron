@@ -15,6 +15,10 @@
   "javascript.validate.enable": false,
   "javascript.format.enable": false,
   "typescript.format.enable": false,
+	"prettier.configPath": "package.json",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+
 
   "search.exclude": {
     ".git": true,

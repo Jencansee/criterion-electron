@@ -1,10 +1,9 @@
-
-const Input = ({ 
+const Input = ({
 	number,
-	handleInputType
-}: { 
-	number: number, 
-	handleInputType: (e: React.ChangeEvent<HTMLInputElement>) => void 
+	handleInputType,
+}: {
+	number: number;
+	handleInputType: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) => {
 	return (
 		<input
